@@ -24,4 +24,10 @@ public class BlogService {
         return blogRepository.findAll();
     }
     
+    // 특정 게시물 가져오기
+    public Article findById(long id) {
+        return blogRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Not found : " + id));
+    }
+
 }
